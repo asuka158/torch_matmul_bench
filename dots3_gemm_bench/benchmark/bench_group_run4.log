@@ -1,0 +1,28 @@
+=== down_proj_group ===
+[cublaslt-group-gemm] extension loaded, cublasLt version 130400
+[cublaslt-group-gemm] plan 1 created: E=257 N=5120 K=384 alpha=3.50329e-06 algos=2
+tp4  T=   256 | cublaslt autotune: algo 0/2
+tp4  T=   256 sum_m=   2304 n= 5120 k=  384 |    174.14 us     52.0 TF   1774.7 GB/s | CUTLASS
+tp4  T=   256 sum_m=   2304 n= 5120 k=  384 |    149.97 us     60.4 TF   2060.7 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 2 created: E=257 N=5120 K=384 alpha=3.8147e-06 algos=2
+tp4  T=  1024 | cublaslt autotune: algo 0/2
+tp4  T=  1024 sum_m=   9216 n= 5120 k=  384 |    195.03 us    185.8 TF   1954.4 GB/s | CUTLASS
+tp4  T=  1024 sum_m=   9216 n= 5120 k=  384 |    156.04 us    232.2 TF   2442.8 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 3 created: E=257 N=5120 K=384 alpha=4.0223e-06 algos=2
+tp4  T=  2048 | cublaslt autotune: algo 0/2
+tp4  T=  2048 sum_m=  18432 n= 5120 k=  384 |    182.70 us    396.7 TF   2612.7 GB/s | CUTLASS
+tp4  T=  2048 sum_m=  18432 n= 5120 k=  384 |    161.72 us    448.2 TF   2951.7 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 4 created: E=257 N=5120 K=384 alpha=4.2299e-06 algos=2
+tp4  T=  4096 | cublaslt autotune: algo 0/2
+tp4  T=  4096 sum_m=  36864 n= 5120 k=  384 |    291.47 us    497.3 TF   2298.8 GB/s | CUTLASS
+tp4  T=  4096 sum_m=  36864 n= 5120 k=  384 |    294.14 us    492.8 TF   2277.9 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 5 created: E=257 N=5120 K=384 alpha=4.3856e-06 algos=2
+tp4  T=  8192 | cublaslt autotune: algo 0/2
+tp4  T=  8192 sum_m=  73728 n= 5120 k=  384 |    505.06 us    574.0 TF   2089.8 GB/s | CUTLASS
+tp4  T=  8192 sum_m=  73728 n= 5120 k=  384 |    355.70 us    815.0 TF   2967.3 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 6 created: E=257 N=5120 K=384 alpha=4.25585e-06 algos=2
+tp4  T= 16384 | cublaslt autotune: algo 0/2
+tp4  T= 16384 sum_m= 147456 n= 5120 k=  384 |    852.04 us    680.5 TF   2143.6 GB/s | CUTLASS
+tp4  T= 16384 sum_m= 147456 n= 5120 k=  384 |    634.45 us    913.9 TF   2878.7 GB/s | CUBLASLT
+-> /mnt/3fs/dots-pretrain/daijiangkun/torch_matmul_bench/dots3_gemm_bench/result/down_proj_group.csv
+
