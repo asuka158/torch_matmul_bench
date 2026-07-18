@@ -1,0 +1,8 @@
+building cutlass_dense_mx (first build takes minutes)...
+built.
+cutlass 2SM : relerr=3.7722e-02
+cutlass 1SM : relerr=3.7722e-02
+cublas nvjet: relerr=3.7722e-02
+bitwise 2SM==1SM   : True
+bitwise 2SM==cublas: True
+maxdiff cutlass-vs-cublas: 0.000000
