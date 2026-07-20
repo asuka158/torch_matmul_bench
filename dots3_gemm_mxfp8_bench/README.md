@@ -64,6 +64,18 @@ bench_kineto 精确子串（num_tests=10, flush_l2=True）:
 sm_mhz/power_w：NVML 1ms 采样窗口平均（被 flush memset 稀释，非持续工况点）。
 gbps：operand+scale+output 字节；group 只计 **active expert**（m_e>0）的权重字节。
 
+### dense 端到端 kernel census（2026-07-19，profile_dense_sweep.py）
+
+对全部 364 个 dense 点 profile 裸 python 调用的 device kernel 构成：
+- **CUTLASS：全部恰好 1 个 kernel**（本口径 = 端到端，零偏差）。
+- **cuBLASLt：39 个点走 split-K**（额外 `splitKreduce_kernel`，`'nvjet'` 子串不匹配 →
+  **CSV 少记 cublas ~19-30%**）：fused_qkv nsa m≤64 / swa m≤32、o_proj nsa/swa m≤16、
+  gate_up tp4 m≤16 / tp8 m≤32、down tp1 m≤16（mxfp8 的 split-K 触发面比 nvfp4 宽，
+  K=5120 也会触发）。
+- 修正成端到端后**零翻转**：cublas 仍全域更快，受影响点 ct/lt 从 1.43~1.88 收窄到
+  1.04~1.52（最紧 gate_up tp4 m=4~16 ≈1.04~1.08，接近平手）。明细见
+  profile_dense_sweep.log。CSV 保持主 kernel 口径未改。
+
 ## shape 类目（同 nvfp4，8 类目 8 CSV）
 
 dense（M = 1,2,4,8,16,32,64,128,256 + 1024,2048,4096,8192,16384）:

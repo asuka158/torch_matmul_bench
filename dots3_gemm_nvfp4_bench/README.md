@@ -52,6 +52,17 @@ bench_kineto 精确子串（四路均已实测通过唯一性断言，num_tests=
 | group CUTLASS | `sgl_kernel.cutlass_fp4_group_mm` | `'GroupProblemShape'`（排除 `__get_group_gemm_starts` prologue） |
 | group cuBLASLt | `cublaslt_fp4_group_mm` | `'nvjet'`（排除指针更新的 elementwise/memcpy） |
 
+### dense 端到端 kernel census（2026-07-19，profile_dense_e2e.py / profile_dense_sweep.py）
+
+对全部 364 个 dense 点（13 变体 × 14 M × 双后端）profile 裸 python 调用的 device kernel 构成：
+- **CUTLASS：364/364 全部恰好 1 个 kernel**，本口径 = 端到端 device 时间，零偏差。
+- **cuBLASLt：349/364 是 1 个 nvjet kernel**；**15 个点 heuristic 选了 split-K**，额外发射
+  `cublasLt::splitKreduce_kernel`（`'nvjet'` 子串不匹配它 → **这些点 CSV 少记 cublas
+  ~26-31% 时间**）。点位全部是大 K 小 M：o_proj nsa (K=16384) / swa (K=8192) /
+  down tp1 (K=13824) 各 m=1~16。
+- 按实测 share 修正成端到端后**结论不翻转**：ct/lt 从记录的 1.70~1.91 收窄到 1.23~1.37，
+  cublas 仍全胜。明细见 profile_dense_sweep.log。CSV 保持主 kernel 口径未改。
+
 ## group gemm 的 kernel 拆分可行性（2026-07-17 探测）
 
 - **cublasLt 侧已天然三段式**：`create_plan`（host，每层一次，含 heuristic）/
