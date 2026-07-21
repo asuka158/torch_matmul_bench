@@ -1,0 +1,156 @@
+=== gate_up_proj_group ===
+[cublaslt-group-gemm] extension loaded, cublasLt version 130400
+[cublaslt-group-gemm] plan 1 created: E=257 N=3072 K=5120 alpha=4.29464e-06 algos=1
+tp1  T=   129 sum_m=   1161 n= 3072 k= 5120 |    389.07 us     93.9 TF   5783.0 GB/s | CUTLASS
+tp1  T=   129 sum_m=   1161 n= 3072 k= 5120 |    410.02 us     89.1 TF   5487.5 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 2 created: E=257 N=3072 K=5120 alpha=4.5163e-06 algos=1
+tp1  T=   257 sum_m=   2313 n= 3072 k= 5120 |    406.94 us    178.8 TF   5663.0 GB/s | CUTLASS
+tp1  T=   257 sum_m=   2313 n= 3072 k= 5120 |    423.42 us    171.8 TF   5442.7 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 3 created: E=257 N=3072 K=5120 alpha=4.5163e-06 algos=1
+tp1  T=   512 sum_m=   4608 n= 3072 k= 5120 |    408.56 us    354.8 TF   5689.6 GB/s | CUTLASS
+tp1  T=   512 sum_m=   4608 n= 3072 k= 5120 |    428.27 us    338.5 TF   5427.7 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 4 created: E=257 N=3072 K=5120 alpha=4.5163e-06 algos=1
+tp1  T=   513 sum_m=   4617 n= 3072 k= 5120 |    406.37 us    357.4 TF   5720.5 GB/s | CUTLASS
+tp1  T=   513 sum_m=   4617 n= 3072 k= 5120 |    430.73 us    337.2 TF   5397.0 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 5 created: E=257 N=3072 K=5120 alpha=4.68255e-06 algos=1
+tp1  T=  1536 sum_m=  13824 n= 3072 k= 5120 |    407.15 us   1068.1 TF   5907.1 GB/s | CUTLASS
+tp1  T=  1536 sum_m=  13824 n= 3072 k= 5120 |    430.04 us   1011.2 TF   5592.6 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 6 created: E=257 N=3072 K=5120 alpha=4.95962e-06 algos=2
+tp1  T=  5120 sum_m=  46080 n= 3072 k= 5120 |    724.46 us   2000.9 TF   3723.3 GB/s | CUTLASS
+tp1  T=  5120 sum_m=  46080 n= 3072 k= 5120 |    567.90 us   2552.5 TF   4749.8 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 7 created: E=257 N=3072 K=5120 alpha=4.95962e-06 algos=3
+tp1  T= 10240 sum_m=  92160 n= 3072 k= 5120 |   1066.00 us   2719.6 TF   2918.1 GB/s | CUTLASS
+tp1  T= 10240 sum_m=  92160 n= 3072 k= 5120 |    744.70 us   3893.0 TF   4177.1 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 8 created: E=257 N=3072 K=5120 alpha=5.15357e-06 algos=3
+tp1  T= 20480 sum_m= 184320 n= 3072 k= 5120 |   1908.00 us   3038.9 TF   2066.1 GB/s | CUTLASS
+tp1  T= 20480 sum_m= 184320 n= 3072 k= 5120 |   1244.00 us   4660.9 TF   3168.9 GB/s | CUBLASLT
+[cublaslt-group-gemm] extension loaded, cublasLt version 130400
+[cublaslt-group-gemm] plan 1 created: E=257 N=768 K=5120 alpha=4.0223e-06 algos=1
+tp4  T=   129 sum_m=   1161 n=  768 k= 5120 |    109.98 us     83.0 TF   5205.6 GB/s | CUTLASS
+tp4  T=   129 sum_m=   1161 n=  768 k= 5120 |    125.50 us     72.8 TF   4561.8 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 2 created: E=257 N=768 K=5120 alpha=4.2299e-06 algos=1
+tp4  T=   257 sum_m=   2313 n=  768 k= 5120 |    115.60 us    157.4 TF   5090.9 GB/s | CUTLASS
+tp4  T=   257 sum_m=   2313 n=  768 k= 5120 |    130.49 us    139.4 TF   4510.0 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 3 created: E=257 N=768 K=5120 alpha=4.2299e-06 algos=1
+tp4  T=   512 sum_m=   4608 n=  768 k= 5120 |    116.54 us    310.9 TF   5130.8 GB/s | CUTLASS
+tp4  T=   512 sum_m=   4608 n=  768 k= 5120 |    132.85 us    272.8 TF   4500.9 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 4 created: E=257 N=768 K=5120 alpha=4.2299e-06 algos=1
+tp4  T=   513 sum_m=   4617 n=  768 k= 5120 |    117.62 us    308.7 TF   5084.6 GB/s | CUTLASS
+tp4  T=   513 sum_m=   4617 n=  768 k= 5120 |    132.77 us    273.5 TF   4504.4 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 5 created: E=257 N=768 K=5120 alpha=4.3856e-06 algos=1
+tp4  T=  1536 sum_m=  13824 n=  768 k= 5120 |    122.01 us    891.0 TF   5212.9 GB/s | CUTLASS
+tp4  T=  1536 sum_m=  13824 n=  768 k= 5120 |    133.07 us    817.0 TF   4779.6 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 6 created: E=257 N=768 K=5120 alpha=4.64511e-06 algos=2
+tp4  T=  5120 sum_m=  46080 n=  768 k= 5120 |    195.16 us   1856.9 TF   3995.2 GB/s | CUTLASS
+tp4  T=  5120 sum_m=  46080 n=  768 k= 5120 |    197.48 us   1835.1 TF   3948.3 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 7 created: E=257 N=768 K=5120 alpha=4.64511e-06 algos=3
+tp4  T= 10240 sum_m=  92160 n=  768 k= 5120 |    286.87 us   2526.5 TF   3418.6 GB/s | CUTLASS
+tp4  T= 10240 sum_m=  92160 n=  768 k= 5120 |    270.66 us   2677.8 TF   3623.3 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 8 created: E=257 N=768 K=5120 alpha=4.82676e-06 algos=3
+tp4  T= 20480 sum_m= 184320 n=  768 k= 5120 |    502.24 us   2886.2 TF   2762.5 GB/s | CUTLASS
+tp4  T= 20480 sum_m= 184320 n=  768 k= 5120 |    356.58 us   4065.1 TF   3890.9 GB/s | CUBLASLT
+[cublaslt-group-gemm] extension loaded, cublasLt version 130400
+[cublaslt-group-gemm] plan 1 created: E=257 N=384 K=5120 alpha=4.0223e-06 algos=1
+tp8  T=   129 sum_m=   1161 n=  384 k= 5120 |     65.07 us     70.2 TF   4501.9 GB/s | CUTLASS
+tp8  T=   129 sum_m=   1161 n=  384 k= 5120 |    104.23 us     43.8 TF   2810.3 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 2 created: E=257 N=384 K=5120 alpha=4.2299e-06 algos=1
+tp8  T=   257 sum_m=   2313 n=  384 k= 5120 |     70.87 us    128.3 TF   4268.7 GB/s | CUTLASS
+tp8  T=   257 sum_m=   2313 n=  384 k= 5120 |    102.83 us     88.4 TF   2941.9 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 3 created: E=257 N=384 K=5120 alpha=4.2299e-06 algos=1
+tp8  T=   512 sum_m=   4608 n=  384 k= 5120 |     71.01 us    255.2 TF   4368.2 GB/s | CUTLASS
+tp8  T=   512 sum_m=   4608 n=  384 k= 5120 |    108.42 us    167.1 TF   2861.2 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 4 created: E=257 N=384 K=5120 alpha=4.2299e-06 algos=1
+tp8  T=   513 sum_m=   4617 n=  384 k= 5120 |     71.81 us    252.8 TF   4321.1 GB/s | CUTLASS
+tp8  T=   513 sum_m=   4617 n=  384 k= 5120 |    104.39 us    173.9 TF   2972.3 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 5 created: E=257 N=384 K=5120 alpha=4.3856e-06 algos=1
+tp8  T=  1536 sum_m=  13824 n=  384 k= 5120 |     74.44 us    730.3 TF   4583.9 GB/s | CUTLASS
+tp8  T=  1536 sum_m=  13824 n=  384 k= 5120 |    108.71 us    500.0 TF   3138.6 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 6 created: E=257 N=384 K=5120 alpha=4.64511e-06 algos=1
+tp8  T=  5120 sum_m=  46080 n=  384 k= 5120 |    108.77 us   1665.9 TF   4230.3 GB/s | CUTLASS
+tp8  T=  5120 sum_m=  46080 n=  384 k= 5120 |    134.22 us   1350.0 TF   3428.0 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 7 created: E=257 N=384 K=5120 alpha=4.64511e-06 algos=3
+tp8  T= 10240 sum_m=  92160 n=  384 k= 5120 |    157.86 us   2295.6 TF   3963.4 GB/s | CUTLASS
+tp8  T= 10240 sum_m=  92160 n=  384 k= 5120 |    179.61 us   2017.6 TF   3483.4 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 8 created: E=257 N=384 K=5120 alpha=4.82676e-06 algos=3
+tp8  T= 20480 sum_m= 184320 n=  384 k= 5120 |    266.73 us   2717.3 TF   3605.4 GB/s | CUTLASS
+tp8  T= 20480 sum_m= 184320 n=  384 k= 5120 |    264.32 us   2742.1 TF   3638.3 GB/s | CUBLASLT
+-> /mnt/3fs/dots-pretrain/daijiangkun/torch_matmul_bench/dots3_gemm_nvfp4_bench/result/gate_up_proj_group.csv
+
+=== down_proj_group ===
+[cublaslt-group-gemm] extension loaded, cublasLt version 130400
+[cublaslt-group-gemm] plan 1 created: E=257 N=5120 K=1536 alpha=3.89822e-06 algos=2
+tp1  T=   129 sum_m=   1161 n= 5120 k= 1536 |    270.91 us     67.4 TF   4173.6 GB/s | CUTLASS
+tp1  T=   129 sum_m=   1161 n= 5120 k= 1536 |    225.12 us     81.1 TF   5022.5 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 2 created: E=257 N=5120 K=1536 alpha=4.15246e-06 algos=2
+tp1  T=   257 sum_m=   2313 n= 5120 k= 1536 |    279.06 us    130.4 TF   4176.6 GB/s | CUTLASS
+tp1  T=   257 sum_m=   2313 n= 5120 k= 1536 |    229.88 us    158.3 TF   5070.1 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 3 created: E=257 N=5120 K=1536 alpha=4.37844e-06 algos=2
+tp1  T=   512 sum_m=   4608 n= 5120 k= 1536 |    283.17 us    256.0 TF   4205.3 GB/s | CUTLASS
+tp1  T=   512 sum_m=   4608 n= 5120 k= 1536 |    234.26 us    309.4 TF   5083.3 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 4 created: E=257 N=5120 K=1536 alpha=4.37844e-06 algos=2
+tp1  T=   513 sum_m=   4617 n= 5120 k= 1536 |    279.44 us    259.9 TF   4261.7 GB/s | CUTLASS
+tp1  T=   513 sum_m=   4617 n= 5120 k= 1536 |    233.21 us    311.4 TF   5106.6 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 5 created: E=257 N=5120 K=1536 alpha=4.60443e-06 algos=2
+tp1  T=  1536 sum_m=  13824 n= 5120 k= 1536 |    293.48 us    740.9 TF   4403.6 GB/s | CUTLASS
+tp1  T=  1536 sum_m=  13824 n= 5120 k= 1536 |    245.11 us    887.1 TF   5272.6 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 6 created: E=257 N=5120 K=1536 alpha=4.77391e-06 algos=2
+tp1  T=  5120 sum_m=  46080 n= 5120 k= 1536 |    564.52 us   1283.9 TF   2924.4 GB/s | CUTLASS
+tp1  T=  5120 sum_m=  46080 n= 5120 k= 1536 |    468.24 us   1547.9 TF   3525.7 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 7 created: E=257 N=5120 K=1536 alpha=5.05639e-06 algos=3
+tp1  T= 10240 sum_m=  92160 n= 5120 k= 1536 |    867.73 us   1670.5 TF   2491.3 GB/s | CUTLASS
+tp1  T= 10240 sum_m=  92160 n= 5120 k= 1536 |    586.11 us   2473.2 TF   3688.4 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 8 created: E=257 N=5120 K=1536 alpha=5.05639e-06 algos=3
+tp1  T= 20480 sum_m= 184320 n= 5120 k= 1536 |   1380.00 us   2100.8 TF   2308.0 GB/s | CUTLASS
+tp1  T= 20480 sum_m= 184320 n= 5120 k= 1536 |   1074.00 us   2699.4 TF   2965.6 GB/s | CUBLASLT
+[cublaslt-group-gemm] extension loaded, cublasLt version 130400
+[cublaslt-group-gemm] plan 1 created: E=257 N=5120 K=384 alpha=3.32164e-06 algos=2
+tp4  T=   129 sum_m=   1161 n= 5120 k=  384 |    180.40 us     25.3 TF   1616.3 GB/s | CUTLASS
+tp4  T=   129 sum_m=   1161 n= 5120 k=  384 |    147.71 us     30.9 TF   1974.0 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 2 created: E=257 N=5120 K=384 alpha=3.50329e-06 algos=2
+tp4  T=   257 sum_m=   2313 n= 5120 k=  384 |    182.99 us     49.7 TF   1689.5 GB/s | CUTLASS
+tp4  T=   257 sum_m=   2313 n= 5120 k=  384 |    151.04 us     60.2 TF   2046.8 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 3 created: E=257 N=5120 K=384 alpha=3.58114e-06 algos=2
+tp4  T=   512 sum_m=   4608 n= 5120 k=  384 |    186.13 us     97.3 TF   1789.6 GB/s | CUTLASS
+tp4  T=   512 sum_m=   4608 n= 5120 k=  384 |    153.38 us    118.1 TF   2171.7 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 4 created: E=257 N=5120 K=384 alpha=3.58114e-06 algos=2
+tp4  T=   513 sum_m=   4617 n= 5120 k=  384 |    191.03 us     95.0 TF   1744.1 GB/s | CUTLASS
+tp4  T=   513 sum_m=   4617 n= 5120 k=  384 |    152.38 us    119.1 TF   2186.5 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 5 created: E=257 N=5120 K=384 alpha=4.0223e-06 algos=2
+tp4  T=  1536 sum_m=  13824 n= 5120 k=  384 |    196.02 us    277.3 TF   2189.9 GB/s | CUTLASS
+tp4  T=  1536 sum_m=  13824 n= 5120 k=  384 |    157.15 us    345.9 TF   2731.5 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 6 created: E=257 N=5120 K=384 alpha=4.10015e-06 algos=2
+tp4  T=  5120 sum_m=  46080 n= 5120 k=  384 |    431.66 us    419.8 TF   1776.0 GB/s | CUTLASS
+tp4  T=  5120 sum_m=  46080 n= 5120 k=  384 |    296.89 us    610.3 TF   2582.2 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 7 created: E=257 N=5120 K=384 alpha=4.3856e-06 algos=2
+tp4  T= 10240 sum_m=  92160 n= 5120 k=  384 |    623.91 us    580.8 TF   2000.7 GB/s | CUTLASS
+tp4  T= 10240 sum_m=  92160 n= 5120 k=  384 |    419.20 us    864.5 TF   2977.7 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 8 created: E=257 N=5120 K=384 alpha=4.64511e-06 algos=3
+tp4  T= 20480 sum_m= 184320 n= 5120 k=  384 |    908.47 us    797.8 TF   2434.7 GB/s | CUTLASS
+tp4  T= 20480 sum_m= 184320 n= 5120 k=  384 |    797.97 us    908.3 TF   2771.8 GB/s | CUBLASLT
+[cublaslt-group-gemm] extension loaded, cublasLt version 130400
+[cublaslt-group-gemm] plan 1 created: E=257 N=5120 K=192 alpha=3.21784e-06 algos=2
+tp8  T=   129 sum_m=   1161 n= 5120 k=  192 |    174.81 us     13.1 TF    868.0 GB/s | CUTLASS
+tp8  T=   129 sum_m=   1161 n= 5120 k=  192 |    138.34 us     16.5 TF   1096.8 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 2 created: E=257 N=5120 K=192 alpha=3.21784e-06 algos=2
+tp8  T=   257 sum_m=   2313 n= 5120 k=  192 |    168.42 us     27.0 TF    988.1 GB/s | CUTLASS
+tp8  T=   257 sum_m=   2313 n= 5120 k=  192 |    141.89 us     32.0 TF   1172.8 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 3 created: E=257 N=5120 K=192 alpha=3.39382e-06 algos=2
+tp8  T=   512 sum_m=   4608 n= 5120 k=  192 |    177.34 us     51.1 TF   1072.2 GB/s | CUTLASS
+tp8  T=   512 sum_m=   4608 n= 5120 k=  192 |    144.50 us     62.7 TF   1315.9 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 4 created: E=257 N=5120 K=192 alpha=3.39382e-06 algos=2
+tp8  T=   513 sum_m=   4617 n= 5120 k=  192 |    172.19 us     52.7 TF   1104.8 GB/s | CUTLASS
+tp8  T=   513 sum_m=   4617 n= 5120 k=  192 |    144.07 us     63.0 TF   1320.4 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 5 created: E=257 N=5120 K=192 alpha=3.69549e-06 algos=2
+tp8  T=  1536 sum_m=  13824 n= 5120 k=  192 |    173.94 us    156.3 TF   1640.8 GB/s | CUTLASS
+tp8  T=  1536 sum_m=  13824 n= 5120 k=  192 |    148.00 us    183.6 TF   1928.4 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 6 created: E=257 N=5120 K=192 alpha=3.84632e-06 algos=2
+tp8  T=  5120 sum_m=  46080 n= 5120 k=  192 |    406.09 us    223.1 TF   1524.9 GB/s | CUTLASS
+tp8  T=  5120 sum_m=  46080 n= 5120 k=  192 |    276.41 us    327.8 TF   2240.3 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 7 created: E=257 N=5120 K=192 alpha=4.24855e-06 algos=2
+tp8  T= 10240 sum_m=  92160 n= 5120 k=  192 |    552.01 us    328.2 TF   1985.4 GB/s | CUTLASS
+tp8  T= 10240 sum_m=  92160 n= 5120 k=  192 |    389.25 us    465.5 TF   2815.6 GB/s | CUBLASLT
+[cublaslt-group-gemm] plan 8 created: E=257 N=5120 K=192 alpha=4.12286e-06 algos=3
+tp8  T= 20480 sum_m= 184320 n= 5120 k=  192 |    912.02 us    397.3 TF   2247.4 GB/s | CUTLASS
+tp8  T= 20480 sum_m= 184320 n= 5120 k=  192 |    693.03 us    522.9 TF   2957.5 GB/s | CUBLASLT
+-> /mnt/3fs/dots-pretrain/daijiangkun/torch_matmul_bench/dots3_gemm_nvfp4_bench/result/down_proj_group.csv
+

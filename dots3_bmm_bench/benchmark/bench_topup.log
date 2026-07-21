@@ -1,0 +1,77 @@
+Device: NVIDIA GB200
+=== A5_w_kc  (batch=128, K=128, N=512) === (incremental, 14 pts already done)
+m=   129 |     13.58 us    159.3 TF   1689.2 GB/s relerr=1.345e-01 | CUTLASS
+m=   129 |      8.30 us    260.7 TF   2764.2 GB/s relerr=1.345e-01 | CUBLASLT
+m=   257 |     18.85 us    228.7 TF   2169.8 GB/s relerr=1.344e-01 | CUTLASS
+m=   257 |     11.52 us    374.4 TF   3551.5 GB/s relerr=1.344e-01 | CUBLASLT
+m=   512 |     22.96 us    374.2 TF   3334.3 GB/s relerr=1.344e-01 | CUTLASS
+m=   512 |     13.64 us    629.5 TF   5609.8 GB/s relerr=1.343e-01 | CUBLASLT
+m=   513 |     26.94 us    319.5 TF   2851.3 GB/s relerr=1.343e-01 | CUTLASS
+m=   513 |     17.76 us    484.5 TF   4324.5 GB/s relerr=1.343e-01 | CUBLASLT
+m=  1536 |     59.74 us    431.3 TF   3685.7 GB/s relerr=1.343e-01 | CUTLASS
+m=  1536 |     41.19 us    625.6 TF   5346.0 GB/s relerr=1.343e-01 | CUBLASLT
+m=  5120 |    188.22 us    456.4 TF   3841.2 GB/s relerr=1.344e-01 | CUTLASS
+m=  5120 |    115.04 us    746.7 TF   6284.7 GB/s relerr=1.344e-01 | CUBLASLT
+m= 10240 |    372.39 us    461.3 TF   3870.3 GB/s relerr=1.344e-01 | CUTLASS
+m= 10240 |    226.79 us    757.5 TF   6355.0 GB/s relerr=1.344e-01 | CUBLASLT
+m= 20480 |    739.01 us    464.9 TF   3894.2 GB/s relerr=1.343e-01 | CUTLASS
+m= 20480 |    449.89 us    763.7 TF   6396.7 GB/s relerr=1.343e-01 | CUBLASLT
+-> /mnt/3fs/dots-pretrain/daijiangkun/torch_matmul_bench/dots3_bmm_bench/result/A5_w_kc.csv
+
+=== A7_w_vc  (batch=128, K=512, N=128) === (incremental, 14 pts already done)
+m=   129 |      8.04 us    269.3 TF   1769.3 GB/s relerr=1.344e-01 | CUTLASS
+m=   129 |      6.01 us    360.1 TF   2366.3 GB/s relerr=1.344e-01 | CUBLASLT
+m=   257 |     10.50 us    410.7 TF   2203.5 GB/s relerr=1.344e-01 | CUTLASS
+m=   257 |      7.24 us    595.4 TF   3194.5 GB/s relerr=1.344e-01 | CUBLASLT
+m=   512 |     12.32 us    697.2 TF   3276.8 GB/s relerr=1.344e-01 | CUTLASS
+m=   512 |      9.58 us    896.6 TF   4213.6 GB/s relerr=1.344e-01 | CUBLASLT
+m=   513 |     13.45 us    639.8 TF   3044.7 GB/s relerr=1.344e-01 | CUTLASS
+m=   513 |     10.31 us    834.5 TF   3971.3 GB/s relerr=1.344e-01 | CUBLASLT
+m=  1536 |     23.83 us   1081.5 TF   4686.8 GB/s relerr=1.345e-01 | CUTLASS
+m=  1536 |     19.73 us   1306.1 TF   5659.8 GB/s relerr=1.345e-01 | CUBLASLT
+m=  5120 |     64.55 us   1330.7 TF   5595.8 GB/s relerr=1.343e-01 | CUTLASS
+m=  5120 |     56.28 us   1526.3 TF   6418.8 GB/s relerr=1.343e-01 | CUBLASLT
+m= 10240 |    115.47 us   1487.8 TF   6215.8 GB/s relerr=1.344e-01 | CUTLASS
+m= 10240 |    105.98 us   1621.0 TF   6772.4 GB/s relerr=1.344e-01 | CUBLASLT
+m= 20480 |    221.23 us   1553.1 TF   6467.3 GB/s relerr=1.344e-01 | CUTLASS
+m= 20480 |    207.91 us   1652.6 TF   6881.6 GB/s relerr=1.344e-01 | CUBLASLT
+-> /mnt/3fs/dots-pretrain/daijiangkun/torch_matmul_bench/dots3_bmm_bench/result/A7_w_vc.csv
+
+=== C5_w_kc  (batch=64, K=192, N=1024) === (incremental, 14 pts already done)
+m=   129 |     13.87 us    234.1 TF   1800.8 GB/s relerr=1.344e-01 | CUTLASS
+m=   129 |      8.58 us    378.4 TF   2911.2 GB/s relerr=1.344e-01 | CUBLASLT
+m=   257 |     18.97 us    340.9 TF   2247.6 GB/s relerr=1.343e-01 | CUTLASS
+m=   257 |     11.84 us    546.3 TF   3601.1 GB/s relerr=1.343e-01 | CUBLASLT
+m=   512 |     23.26 us    554.0 TF   3341.9 GB/s relerr=1.344e-01 | CUTLASS
+m=   512 |     14.01 us    920.0 TF   5549.5 GB/s relerr=1.344e-01 | CUBLASLT
+m=   513 |     27.08 us    476.7 TF   2878.4 GB/s relerr=1.344e-01 | CUTLASS
+m=   513 |     18.23 us    708.0 TF   4275.6 GB/s relerr=1.343e-01 | CUBLASLT
+m=  1536 |     59.85 us    645.9 TF   3659.7 GB/s relerr=1.344e-01 | CUTLASS
+m=  1536 |     37.95 us   1018.6 TF   5771.5 GB/s relerr=1.344e-01 | CUBLASLT
+m=  5120 |    188.14 us    684.9 TF   3792.7 GB/s relerr=1.344e-01 | CUTLASS
+m=  5120 |    119.56 us   1077.6 TF   5967.9 GB/s relerr=1.344e-01 | CUBLASLT
+m= 10240 |    371.11 us    694.4 TF   3826.4 GB/s relerr=1.344e-01 | CUTLASS
+m= 10240 |    235.48 us   1094.4 TF   6030.4 GB/s relerr=1.344e-01 | CUBLASLT
+m= 20480 |    739.22 us    697.2 TF   3832.4 GB/s relerr=1.344e-01 | CUTLASS
+m= 20480 |    466.31 us   1105.3 TF   6075.3 GB/s relerr=1.344e-01 | CUBLASLT
+-> /mnt/3fs/dots-pretrain/daijiangkun/torch_matmul_bench/dots3_bmm_bench/result/C5_w_kc.csv
+
+=== C7_w_vc  (batch=64, K=1024, N=128) === (incremental, 14 pts already done)
+m=   129 |      6.83 us    316.6 TF   1771.4 GB/s relerr=1.344e-01 | CUTLASS
+m=   129 |      6.05 us    357.5 TF   2000.0 GB/s relerr=1.344e-01 | CUBLASLT
+m=   257 |      8.92 us    483.3 TF   2121.0 GB/s relerr=1.343e-01 | CUTLASS
+m=   257 |      7.71 us    559.1 TF   2453.8 GB/s relerr=1.343e-01 | CUBLASLT
+m=   512 |     10.23 us    839.9 TF   3127.2 GB/s relerr=1.345e-01 | CUTLASS
+m=   512 |      9.48 us    906.2 TF   3373.9 GB/s relerr=1.345e-01 | CUBLASLT
+m=   513 |     11.39 us    755.9 TF   2859.2 GB/s relerr=1.344e-01 | CUTLASS
+m=   513 |      9.31 us    924.9 TF   3498.3 GB/s relerr=1.344e-01 | CUBLASLT
+m=  1536 |     19.67 us   1310.3 TF   4398.6 GB/s relerr=1.345e-01 | CUTLASS
+m=  1536 |     17.63 us   1461.8 TF   4907.1 GB/s relerr=1.345e-01 | CUBLASLT
+m=  5120 |     47.28 us   1816.8 TF   5866.1 GB/s relerr=1.344e-01 | CUTLASS
+m=  5120 |     44.35 us   1936.9 TF   6253.8 GB/s relerr=1.344e-01 | CUBLASLT
+m= 10240 |     88.58 us   1939.5 TF   6208.8 GB/s relerr=1.344e-01 | CUTLASS
+m= 10240 |     82.76 us   2075.9 TF   6645.5 GB/s relerr=1.344e-01 | CUBLASLT
+m= 20480 |    169.61 us   2025.8 TF   6457.5 GB/s relerr=1.344e-01 | CUTLASS
+m= 20480 |    157.84 us   2176.8 TF   6938.7 GB/s relerr=1.344e-01 | CUBLASLT
+-> /mnt/3fs/dots-pretrain/daijiangkun/torch_matmul_bench/dots3_bmm_bench/result/C7_w_vc.csv
+

@@ -7,6 +7,8 @@ NOTE: fused_qkv_a_g_proj_with_mqa 'swa' was requested as [2176, 5210]; K=5210 is
 multiple of 16 and cannot be quantized to NVFP4 (16-element block scales along K), so it
 is benchmarked as [2176, 5120] (assumed typo for the 5120 hidden size).
 """
+import csv
+import os
 import sys
 
 import torch
@@ -27,11 +29,42 @@ CATEGORIES = {
 COLUMNS = ['variant', 'm', 'n', 'k', 'us', 'tflops', 'gbps', 'sm_mhz', 'power_w', 'backend']
 
 
-def bench_category(cat, sampler):
-    emit, f = csv_writer(f'{RESULT_DIR}/{cat}.csv', COLUMNS)
-    print(f'=== {cat} ===', flush=True)
+def _complete(path):
+    """{(variant, m)} that already have BOTH backend rows in an existing CSV."""
+    if not os.path.exists(path) or os.path.getsize(path) == 0:
+        return set()
+    with open(path) as fh:
+        rows = [r for r in csv.reader(fh)][1:]
+    have = {}
+    for r in rows:
+        if len(r) < len(COLUMNS):
+            continue
+        have.setdefault((r[0], int(r[1])), set()).add(r[-1])
+    return {k for k, b in have.items() if b >= {'CUTLASS', 'CUBLASLT'}}
+
+
+def _sort_csv(path):
+    """(variant, m, backend) order, so topped-up rows do not pile up at the end."""
+    with open(path) as fh:
+        rows = [r for r in csv.reader(fh) if r]
+    head, body = rows[0], rows[1:]
+    body.sort(key=lambda r: (r[0], int(r[1]), r[-1]))
+    with open(path, 'w', newline='') as fh:
+        w = csv.writer(fh)
+        w.writerow(head)
+        w.writerows(body)
+
+
+def bench_category(cat, sampler, incremental=False):
+    path = f'{RESULT_DIR}/{cat}.csv'
+    done = _complete(path) if incremental else set()
+    emit, f = csv_writer(path, COLUMNS, append=incremental)
+    print(f'=== {cat} ===' + (f' (incremental, {len(done)} pts already done)'
+                              if incremental else ''), flush=True)
     for variant, n, k in CATEGORIES[cat]:
         for m in M_ALL:
+            if (variant, m) in done:
+                continue
             try:
                 run_ct, run_lt, nbytes = build_dense(m, n, k)
                 flops = 2.0 * m * n * k
@@ -49,17 +82,21 @@ def bench_category(cat, sampler):
                       f'{type(ex).__name__}: {str(ex)[:120]}', flush=True)
                 torch.cuda.empty_cache()
     f.close()
-    print(f'-> {RESULT_DIR}/{cat}.csv\n', flush=True)
+    if incremental:
+        _sort_csv(path)
+    print(f'-> {path}\n', flush=True)
 
 
 if __name__ == '__main__':
-    cats = sys.argv[1:] or list(CATEGORIES)
+    args = sys.argv[1:]
+    incremental = '--incremental' in args
+    cats = [a for a in args if not a.startswith('--')] or list(CATEGORIES)
     for c in cats:
         assert c in CATEGORIES, f'unknown category {c}; choose from {list(CATEGORIES)}'
     print(f'Device: {torch.cuda.get_device_name(0)}')
     sampler = NvmlSampler(index=0)
     try:
         for c in cats:
-            bench_category(c, sampler)
+            bench_category(c, sampler, incremental=incremental)
     finally:
         sampler.close()

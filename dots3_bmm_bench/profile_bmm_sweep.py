@@ -18,6 +18,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ben
 import torch  # noqa: E402
 
 from bmm_lib import BMMS, M_ALL, SUBSTR, build_bmm  # noqa: E402
+import cublaslt_batched_nvfp4 as cb  # noqa: E402  (after bmm_lib sets sys.path)
 
 ITERS = 5
 
@@ -62,6 +63,7 @@ if __name__ == '__main__':
                           f'main={main:.2f}us total={total:.2f}us share={share:.1f}% '
                           f'extra={extra}', flush=True)
             del run_ct, run_lt
+            cb.destroy_all()
             torch.cuda.empty_cache()
         print(f'. {bmm} done', flush=True)
 

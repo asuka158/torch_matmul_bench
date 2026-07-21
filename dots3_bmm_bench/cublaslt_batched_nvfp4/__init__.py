@@ -66,6 +66,9 @@ def workspace(device="cuda"):
     return _workspace
 
 
+_live_plans = []
+
+
 def make_plan(w, x, out, w_sc, x_sc, B, M, N, K, alpha,
               alpha_vec=None, scale_mode=0):
     """-> (ext, plan_id). Heuristic runs here; run_plan(id) only enqueues.
@@ -73,10 +76,28 @@ def make_plan(w, x, out, w_sc, x_sc, B, M, N, K, alpha,
     scale_mode: 0 = single host scalar alpha (per-TENSOR global scale)
                 1 = per-batch alpha vector [B, N] (ALPHA_VECTOR_BATCH_STRIDE)
                 2 = per-batch D scale [B]        (D_SCALE_MODE PER_BATCH_SCALAR_32F)
+
+    NOTE: the plan keeps its operand tensors alive C++-side, so a caller that builds
+    many points MUST call destroy_all() between them or the buffers accumulate for the
+    lifetime of the process (multi-GB per point at large M).
     """
     ext = load_ext()
     if alpha_vec is None:
         alpha_vec = torch.empty(0, dtype=torch.float32, device=w.device)
     pid = ext.create_plan(w, x, out, w_sc, x_sc, B, M, N, K, float(alpha),
                           alpha_vec, int(scale_mode), workspace(w.device))
+    _live_plans.append(pid)
     return ext, pid
+
+
+def destroy_all():
+    """Destroy every live plan, releasing the operand tensors they pin."""
+    if not _live_plans:
+        return
+    ext = load_ext()
+    for pid in _live_plans:
+        try:
+            ext.destroy_plan(pid)
+        except Exception:
+            pass
+    _live_plans.clear()

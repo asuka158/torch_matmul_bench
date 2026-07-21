@@ -39,7 +39,12 @@ NUM_TESTS = 10
 
 M_DECODE = [1, 2, 4, 8, 16, 32, 64, 128, 256]
 M_PREFILL = [1024, 2048, 4096, 8192, 16384]
-M_ALL = M_DECODE + M_PREFILL
+# 2026-07-21 coverage top-up: tile-boundary probes (129/257/513 -- every other M is a
+# power of 2 and thus perfectly 128-tile aligned), the 256->1024 gap (512, 1536), and
+# the real deployment ceilings (5120 = per-rank chunked-prefill after //dp_size,
+# 20480 = the gathered MoE/dense chunk; 10240 = half chunk).
+M_EXTRA = [129, 257, 512, 513, 1536, 5120, 10240, 20480]
+M_ALL = sorted(set(M_DECODE + M_PREFILL + M_EXTRA))
 
 SUBSTR = {
     ('dense', 'CUTLASS'): 'device_kernel',
@@ -291,11 +296,14 @@ def reset_cublaslt_plans():
 # ---------------------------------------------------------------------------
 # csv
 # ---------------------------------------------------------------------------
-def csv_writer(path, columns):
+def csv_writer(path, columns, append=False):
+    """append=True keeps existing rows (incremental top-up runs) and writes no header."""
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    f = open(path, 'w', newline='')
+    resume = append and os.path.exists(path) and os.path.getsize(path) > 0
+    f = open(path, 'a' if resume else 'w', newline='')
     w = csv.writer(f)
-    w.writerow(columns)
+    if not resume:
+        w.writerow(columns)
     f.flush()
 
     def emit(row):
