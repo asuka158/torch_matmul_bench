@@ -1,0 +1,131 @@
+device: NVIDIA GB200
+cutlass-dsl: 4.5.2
+run_scaled_mm params: ['mnkl', 'ab_dtype', 'sf_dtype', 'sf_vec_size', 'c_dtype', 'a_major', 'b_major', 'c_major', 'mma_tiler_mn', 'cluster_shape_mn']
+kernel __call__ has alpha_tensor param: False
+
+=== Q1: correctness (example validates internally) ===
+Running Sm100 Persistent Dense BlockScaled GEMM test with:
+mnkl: (128, 512, 128, 1)
+AB dtype: Float4E2M1FN, SF dtype: Float8E4M3FN, SF Vec size: 16
+C dtype: BFloat16
+Matrix majors - A: k, B: k, C: n
+Mma Tiler (M, N): (128, 128), Cluster Shape (M, N): (1, 1)
+Tolerance: 0.1
+Warmup iterations: 0
+Iterations: 1
+Skip reference checking: False
+Use cold L2: False
+M=128 N=512 K=128 L=   1 | OK (ref check passed)
+Running Sm100 Persistent Dense BlockScaled GEMM test with:
+mnkl: (128, 512, 128, 8)
+AB dtype: Float4E2M1FN, SF dtype: Float8E4M3FN, SF Vec size: 16
+C dtype: BFloat16
+Matrix majors - A: k, B: k, C: n
+Mma Tiler (M, N): (128, 128), Cluster Shape (M, N): (1, 1)
+Tolerance: 0.1
+Warmup iterations: 0
+Iterations: 1
+Skip reference checking: False
+Use cold L2: False
+M=128 N=512 K=128 L=   8 | OK (ref check passed)
+Running Sm100 Persistent Dense BlockScaled GEMM test with:
+mnkl: (128, 512, 128, 128)
+AB dtype: Float4E2M1FN, SF dtype: Float8E4M3FN, SF Vec size: 16
+C dtype: BFloat16
+Matrix majors - A: k, B: k, C: n
+Mma Tiler (M, N): (128, 128), Cluster Shape (M, N): (1, 1)
+Tolerance: 0.1
+Warmup iterations: 0
+Iterations: 1
+Skip reference checking: False
+Use cold L2: False
+M=128 N=512 K=128 L= 128 | OK (ref check passed)
+Running Sm100 Persistent Dense BlockScaled GEMM test with:
+mnkl: (128, 1024, 192, 64)
+AB dtype: Float4E2M1FN, SF dtype: Float8E4M3FN, SF Vec size: 16
+C dtype: BFloat16
+Matrix majors - A: k, B: k, C: n
+Mma Tiler (M, N): (128, 128), Cluster Shape (M, N): (1, 1)
+Tolerance: 0.1
+Warmup iterations: 0
+Iterations: 1
+Skip reference checking: False
+Use cold L2: False
+M=128 N=1024 K=192 L=  64 | OK (ref check passed)
+USDT:2026-07-20 19:33:56 793845:793845 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-07-20 19:33:58 793845:793845 SyncActivityProfilerHandler.cpp:59] profiler_stop
+
+=== Q2: kernel launches per call (true bmm => 1, loop => L) ===
+Running Sm100 Persistent Dense BlockScaled GEMM test with:
+mnkl: (128, 512, 128, 1)
+AB dtype: Float4E2M1FN, SF dtype: Float8E4M3FN, SF Vec size: 16
+C dtype: BFloat16
+Matrix majors - A: k, B: k, C: n
+Mma Tiler (M, N): (128, 128), Cluster Shape (M, N): (1, 1)
+Tolerance: 0.1
+Warmup iterations: 0
+Iterations: 1
+Skip reference checking: True
+Use cold L2: False
+Running Sm100 Persistent Dense BlockScaled GEMM test with:
+mnkl: (128, 512, 128, 1)
+AB dtype: Float4E2M1FN, SF dtype: Float8E4M3FN, SF Vec size: 16
+C dtype: BFloat16
+Matrix majors - A: k, B: k, C: n
+Mma Tiler (M, N): (128, 128), Cluster Shape (M, N): (1, 1)
+Tolerance: 0.1
+Warmup iterations: 0
+Iterations: 1
+Skip reference checking: True
+Use cold L2: False
+L=   1 | kernel launches=1 | kernel_cutlass_kernel_cutlass_bs_gemm_exampleSm100Bl x1
+USDT:2026-07-20 19:34:00 793845:793845 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-07-20 19:34:02 793845:793845 SyncActivityProfilerHandler.cpp:59] profiler_stop
+Running Sm100 Persistent Dense BlockScaled GEMM test with:
+mnkl: (128, 512, 128, 8)
+AB dtype: Float4E2M1FN, SF dtype: Float8E4M3FN, SF Vec size: 16
+C dtype: BFloat16
+Matrix majors - A: k, B: k, C: n
+Mma Tiler (M, N): (128, 128), Cluster Shape (M, N): (1, 1)
+Tolerance: 0.1
+Warmup iterations: 0
+Iterations: 1
+Skip reference checking: True
+Use cold L2: False
+Running Sm100 Persistent Dense BlockScaled GEMM test with:
+mnkl: (128, 512, 128, 8)
+AB dtype: Float4E2M1FN, SF dtype: Float8E4M3FN, SF Vec size: 16
+C dtype: BFloat16
+Matrix majors - A: k, B: k, C: n
+Mma Tiler (M, N): (128, 128), Cluster Shape (M, N): (1, 1)
+Tolerance: 0.1
+Warmup iterations: 0
+Iterations: 1
+Skip reference checking: True
+Use cold L2: False
+L=   8 | kernel launches=1 | kernel_cutlass_kernel_cutlass_bs_gemm_exampleSm100Bl x1
+USDT:2026-07-20 19:34:04 793845:793845 SyncActivityProfilerHandler.cpp:52] profiler_start
+USDT:2026-07-20 19:34:06 793845:793845 SyncActivityProfilerHandler.cpp:59] profiler_stop
+Running Sm100 Persistent Dense BlockScaled GEMM test with:
+mnkl: (128, 512, 128, 64)
+AB dtype: Float4E2M1FN, SF dtype: Float8E4M3FN, SF Vec size: 16
+C dtype: BFloat16
+Matrix majors - A: k, B: k, C: n
+Mma Tiler (M, N): (128, 128), Cluster Shape (M, N): (1, 1)
+Tolerance: 0.1
+Warmup iterations: 0
+Iterations: 1
+Skip reference checking: True
+Use cold L2: False
+Running Sm100 Persistent Dense BlockScaled GEMM test with:
+mnkl: (128, 512, 128, 64)
+AB dtype: Float4E2M1FN, SF dtype: Float8E4M3FN, SF Vec size: 16
+C dtype: BFloat16
+Matrix majors - A: k, B: k, C: n
+Mma Tiler (M, N): (128, 128), Cluster Shape (M, N): (1, 1)
+Tolerance: 0.1
+Warmup iterations: 0
+Iterations: 1
+Skip reference checking: True
+Use cold L2: False
+L=  64 | kernel launches=1 | kernel_cutlass_kernel_cutlass_bs_gemm_exampleSm100Bl x1

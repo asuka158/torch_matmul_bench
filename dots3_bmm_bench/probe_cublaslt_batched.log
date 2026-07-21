@@ -1,0 +1,20 @@
+device: NVIDIA GB200
+cublasLt: 130400
+
+B=   1 M=  128 N=  512 K=  128 | OK   relerr=1.3458e-01 algos=1 per-batch=[0.135]
+B=   2 M=  128 N=  512 K=  128 | OK   relerr=1.3474e-01 algos=1 per-batch=[0.135, 0.135]
+B=   4 M=  128 N=  512 K=  128 | OK   relerr=1.3406e-01 algos=1 per-batch=[0.135, 0.135, 0.133, 0.134]
+B= 128 M=  128 N=  512 K=  128 | OK   relerr=1.3447e-01 algos=2 per-batch=[0.134, 0.135, 0.134, 0.135, 0.135, 0.134, ...]
+B=  64 M=  128 N= 1024 K=  192 | OK   relerr=1.3439e-01 algos=2 per-batch=[0.135, 0.134, 0.135, 0.135, 0.134, 0.135, ...]
+
+=== M sweep, A5 geometry (B=128, N=512, K=128) ===
+M=     1 sf_shape=(128, 8)       | OK   relerr=1.3462e-01 algos=3 per-batch=[0.133, 0.151, 0.138, 0.149, 0.133, 0.143, ...]
+M=     2 sf_shape=(128, 8)       | OK   relerr=1.3405e-01 algos=2 per-batch=[0.136, 0.147, 0.128, 0.128, 0.134, 0.129, ...]
+M=     4 sf_shape=(128, 8)       | OK   relerr=1.3436e-01 algos=2 per-batch=[0.132, 0.134, 0.135, 0.140, 0.137, 0.139, ...]
+M=     8 sf_shape=(128, 8)       | OK   relerr=1.3420e-01 algos=2 per-batch=[0.132, 0.139, 0.136, 0.136, 0.138, 0.130, ...]
+M=    16 sf_shape=(128, 8)       | OK   relerr=1.3443e-01 algos=2 per-batch=[0.137, 0.135, 0.135, 0.133, 0.143, 0.137, ...]
+M=    32 sf_shape=(128, 8)       | OK   relerr=1.3428e-01 algos=2 per-batch=[0.135, 0.134, 0.137, 0.134, 0.134, 0.135, ...]
+M=    64 sf_shape=(128, 8)       | OK   relerr=1.3443e-01 algos=2 per-batch=[0.133, 0.133, 0.135, 0.133, 0.135, 0.134, ...]
+M=   128 sf_shape=(128, 8)       | OK   relerr=1.3447e-01 algos=2 per-batch=[0.134, 0.135, 0.134, 0.135, 0.135, 0.134, ...]
+M=   256 sf_shape=(256, 8)       | OK   relerr=1.3439e-01 algos=1 per-batch=[0.134, 0.134, 0.135, 0.134, 0.134, 0.133, ...]
+M=  1024 sf_shape=(1024, 8)      | OK   relerr=1.3435e-01 algos=1 per-batch=[0.135, 0.134, 0.134, 0.134, 0.135, 0.134, ...]

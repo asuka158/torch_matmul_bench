@@ -1,0 +1,11 @@
+device: NVIDIA GB200  cublasLt 130400
+per-batch alphas span 2.336e-06 .. 3.709e-02 (ratio 15881.5x)
+
+mode0 shared scalar alpha (CONTROL, must be WRONG)
+    BAD  relerr=9.9992e-01 per-batch=[0.135, 0.742, 0.943, 0.988, 0.996, 0.999, 1.000, 1.000]
+mode1 ALPHA_VECTOR_BATCH_STRIDE (per-batch alpha)
+    PLAN-FAIL RuntimeError: cublasLt batched nvfp4 heuristic failed: NOT_SUPPORTED, returned=0 (B=8 M=128 N=512 K=128)
+mode2 D_SCALE PER_BATCH_SCALAR_32F (per-batch)
+    PLAN-FAIL RuntimeError: cublasLt batched nvfp4 heuristic failed: INVALID_VALUE, returned=0 (B=8 M=128 N=512 K=128)
+mode2 D_SCALE PER_BATCH_SCALAR_32F (per-batch) [1/alpha]
+    PLAN-FAIL RuntimeError: cublasLt batched nvfp4 heuristic failed: INVALID_VALUE, returned=0 (B=8 M=128 N=512 K=128)

@@ -1,0 +1,19 @@
+device: NVIDIA GB200
+relerr vs fp32 baseline (nvfp4 expected ~1.3e-1)
+
+A5_w_kc   B= 128 M=     1 K=  128 N=  512 | cuBLASLt=1.3462e-01 | CUTLASS=1.3464e-01 | ct-vs-lt=max_abs=2.500e-01 rel=1.000
+A5_w_kc   B= 128 M=    16 K=  128 N=  512 | cuBLASLt=1.3443e-01 | CUTLASS=1.3444e-01 | ct-vs-lt=max_abs=5.000e-01 rel=1.000
+A5_w_kc   B= 128 M=   128 K=  128 N=  512 | cuBLASLt=1.3447e-01 | CUTLASS=1.3447e-01 | ct-vs-lt=max_abs=2.500e-01 rel=1.000
+A5_w_kc   B= 128 M=  1024 K=  128 N=  512 | cuBLASLt=1.3435e-01 | CUTLASS=1.3435e-01 | ct-vs-lt=max_abs=2.500e-01 rel=1.000
+A7_w_vc   B= 128 M=     1 K=  512 N=  128 | cuBLASLt=1.3426e-01 | CUTLASS=1.3426e-01 | ct-vs-lt=max_abs=5.000e-01 rel=1.000
+A7_w_vc   B= 128 M=    16 K=  512 N=  128 | cuBLASLt=1.3453e-01 | CUTLASS=1.3454e-01 | ct-vs-lt=max_abs=5.000e-01 rel=1.000
+A7_w_vc   B= 128 M=   128 K=  512 N=  128 | cuBLASLt=1.3438e-01 | CUTLASS=1.3438e-01 | ct-vs-lt=max_abs=5.000e-01 rel=1.000
+A7_w_vc   B= 128 M=  1024 K=  512 N=  128 | cuBLASLt=1.3439e-01 | CUTLASS=1.3440e-01 | ct-vs-lt=max_abs=5.000e-01 rel=1.000
+C5_w_kc   B=  64 M=     1 K=  192 N= 1024 | cuBLASLt=1.3448e-01 | CUTLASS=1.3449e-01 | ct-vs-lt=max_abs=2.500e-01 rel=1.000
+C5_w_kc   B=  64 M=    16 K=  192 N= 1024 | cuBLASLt=1.3413e-01 | CUTLASS=1.3414e-01 | ct-vs-lt=max_abs=5.000e-01 rel=1.000
+C5_w_kc   B=  64 M=   128 K=  192 N= 1024 | cuBLASLt=1.3439e-01 | CUTLASS=1.3440e-01 | ct-vs-lt=max_abs=5.000e-01 rel=1.000
+C5_w_kc   B=  64 M=  1024 K=  192 N= 1024 | cuBLASLt=1.3434e-01 | CUTLASS=1.3436e-01 | ct-vs-lt=max_abs=5.000e-01 rel=1.000
+C7_w_vc   B=  64 M=     1 K= 1024 N=  128 | cuBLASLt=1.3417e-01 | CUTLASS=1.3418e-01 | ct-vs-lt=max_abs=1.000e+00 rel=1.000
+C7_w_vc   B=  64 M=    16 K= 1024 N=  128 | cuBLASLt=1.3453e-01 | CUTLASS=1.3454e-01 | ct-vs-lt=max_abs=1.000e+00 rel=1.000
+C7_w_vc   B=  64 M=   128 K= 1024 N=  128 | cuBLASLt=1.3452e-01 | CUTLASS=1.3453e-01 | ct-vs-lt=max_abs=1.000e+00 rel=1.000
+C7_w_vc   B=  64 M=  1024 K= 1024 N=  128 | cuBLASLt=1.3442e-01 | CUTLASS=1.3443e-01 | ct-vs-lt=max_abs=1.000e+00 rel=1.000
